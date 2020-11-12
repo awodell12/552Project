@@ -30,7 +30,7 @@
 #define CACHE_HIT_THRESHOLD 40
 
 /* Default = 999; attempts to hit cache */
-#define MAX_TRIES 2500
+#define MAX_TRIES 200
 
 /********************************************************************
  Victim code.
@@ -42,7 +42,7 @@ uint8_t array1[160] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
 uint8_t unused2[64];
 uint8_t array2[256 * 512];
 
-char secret[] = "The Magic Words are Squeamish Ossifrage.";
+char secret[] = "The Magic Words are Dan Sorin is the best prof at Duke.";
 
 uint8_t temp = 0; /* Used so compiler won’t optimize out victim_function() */
 
@@ -143,7 +143,7 @@ void readMemoryByte(size_t malicious_x, uint8_t value[2], int score[2]) {
 int main(int argc, const char **argv) {
   size_t malicious_x =
       (size_t)(secret - (char *)array1); /* default for malicious_x */
-  int i, score[2], len = 40, selected_id = 0, not_selected_id = 1;
+  int i, score[2], len = 55, selected_id = 0, not_selected_id = 1;
   char *not_selected_label = "second";
   char recovered_secret[sizeof(secret)] = "";
   uint8_t value[2];

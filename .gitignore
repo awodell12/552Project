@@ -35,6 +35,8 @@
 *.i*86
 *.x86_64
 *.hex
+spectre_modified
+spectre_orig
 
 # Debug files
 *.dSYM/
